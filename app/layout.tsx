@@ -1,18 +1,24 @@
-import type React from "react"
-import type { Metadata } from "next"
-import ClientLayout from "./ClientLayout"
-import "./globals.css" // Import globals.css at the top of the file
+import type { Metadata } from 'next'
+import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
+import './globals.css'
 
 export const metadata: Metadata = {
-  title: "Shoe Style - Adidas Campaign",
-  description: "Adidas Superstar campaign page",
-    generator: 'v0.app'
+  title: 'v0 App',
+  description: 'Created with v0',
+  generator: 'v0.app',
 }
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
-  return <ClientLayout>{children}</ClientLayout>
+}>) {
+  return (
+    <html lang="en">
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+        {children}
+      </body>
+    </html>
+  )
 }
